@@ -1,0 +1,112 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Soft blue background */
+    color: #333;
+}
+
+.navbar {
+    background-color: #B14A87 !important;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+.footer {
+    background-color: #B14A87;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer .footer-top {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.footer .footer-contact p, .footer .footer-contact span {
+    color: #fff;
+}
+
+.footer .social-links a {
+    color: #fff;
+    margin-right: 15px;
+}
+
+.footer .copyright {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.info-wrap {
+    background: #e6f0fa; /* Soft blue background for info sections */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-item {
+    margin-bottom: 20px;
+}
+
+.info-item i {
+    font-size: 24px;
+    color: #B14A87;
+    margin-right: 15px;
+}
+
+.info-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.php-email-form {
+    background: #e6f0fa; /* Soft blue background for forms */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.php-email-form .loading,
+.php-email-form .error-message,
+.php-email-form .sent-message {
+    display: none;
+}
+
+.php-email-form button[type="submit"] {
+    background: #B14A87;
+    color: #fff;
+    border: 0;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+.php-email-form button[type="submit"]:hover {
+    background: #a03c74;
+}
+
+.footer-newsletter {
+    background: #f0f8ff; /* Soft blue background for newsletter section */
+    padding: 20px 0;
+}
+
+.footer-newsletter form .newsletter-form input[type="submit"] {
+    background: #B14A87;
+    border: 0;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.footer-newsletter form .newsletter-form input[type="submit"]:hover {
+    background: #a03c74;
+}
+
+h3, h4 {
+    color: #B14A87;
+}
