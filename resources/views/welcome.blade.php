@@ -9,6 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
+        .bg-main {
+            background-image: url('assets/Img/web home-100.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
         .footer {
             background-color: #989FC1;
         }
@@ -34,13 +40,100 @@
             left: 100%;
             margin-top: -1px;
         }
+        .btn-primary {
+            background-color: #989FC1;
+            border: none;
+            text-align: center;
+        }
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.chat-bubble {
+    position: fixed;
+    bottom:80px; /* Increased to make room for the button */
+    right: 20px;
+    width: 350px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    overflow: hidden;
+    display: none; /* Hidden by default */
+}
+
+.chat-header {
+    background-color: #989FC1;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.chat-body {
+    padding: 10px;
+}
+
+.chat-account {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chat-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-info {
+    flex-grow: 1;
+    padding: 2px;
+
+}
+
+.chat-link {
+    color: #989FC1;
+    text-decoration: none;
+}
+
+.chat-footer {
+    background-color: #f8f8f8;
+    padding: 10px;
+    text-align: center;
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px; /* Changed to position the button below the chat bubble */
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 40px; /* Adjusted to maintain circular shape */
+    padding: 10px 20px; /* Added padding for button */
+    font-size: 16px; /* Adjusted font size */
+    cursor: pointer;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Ensured no underline for link */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button i {
+    margin-right: 8px;
+}
+
+
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(176, 76, 135, 0.75);">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="#">
-                <img src="{{ asset('assets/logo/Logo.png') }}" alt="PT Meraki Institute Logo" width="50px">
+                <img src="assets/logo/Logo.png" alt="PT Meraki Institute Logo" width="50px">
                 Meraki Institute
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,6 +141,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{route('admin.dashboard')}}">Admin</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="home.html">Home</a>
                     </li>
@@ -70,7 +166,6 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Deep Dropdown 1</a></li>
                                     <li><a class="dropdown-item" href="#">Deep Dropdown 2</a></li>
-
                                     <li><a class="dropdown-item" href="#">Deep Dropdown 3</a></li>
                                     <li><a class="dropdown-item" href="#">Deep Dropdown 4</a></li>
                                     <li><a class="dropdown-item" href="#">Deep Dropdown 5</a></li>
@@ -96,45 +191,84 @@
         </div>
     </nav>
 
-        <main class="main bg-light" id="get" >
-            <section id="tampilanawal" class="py-4 " style="background-color: #b04c87bf;">
-                <div class="container">
-                    <div class="row gy-4">
-                        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                            <h1 class="text-white">Better Solutions For Your Business</h1>
-                            <h6 class="my-2">Pelatihan dan Sertifikasi Kompetensi sesuai standar BNSP/Kemnaker RI, mandiri atau dengan provider lain.</h6>
-                            <div class="d-flex my-3">
-                                <a href="#services" class=" col-6 btn btn-lg btn-primary">Get Started</a>
-                            </div>
-                            <div class="conainer">
-                                <img src="" alt="">
-                            </div>
+    <main class="main bg-light" id="get">
+        <section id="tampilanawal" class="py-4" style="background-color: #b04c87bf;">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                        <h1 class="text-white">Program Pengembangan Profesional Pelatihan dan Sertifikasi Meraki Institute</h1>
+                        <h6 class="my-2">Pelatihan dan Sertifikat Kompetensi sesuai standar BNSP, Kemnaker RI, atau Pelatihan Internal.</h6>
+                        <div class="d-flex my-3">
+                            <a href="#services" class="col-6 btn btn-lg btn-primary">Get Started</a>
                         </div>
                     </div>
                 </div>
+            </div>
             </section>
             <div class="container" >
                 <div class="row gy-4">
                     <div class="col-lg-12 order-2 order-lg-1 d-flex justify-content-between align-items-center bg-light p-3">
                         <div class="text-left">
-                            <h4><span style="color: #b04c87bf;">Informasi &</span> Jadwal Pelatihan</h4>
-                            <h4 style="color: #b04c87bf;">PT Meraki Institute</h4>
+                            <h4><span style="color: #b04c87bf;">Meraki Institute by</span> </h4>
+                            <h4 style="color: #b04c87bf;">PT. Meraki Anugerah Pratama</h4>
                             <p>PT Meraki menyiapkan segala macam pelatihan yang anda butuhkan! <br>Lakukan hal terbaik untuk hasil yang terbaik!</p>
                         </div>
-                        <button type="button" class="btn btn-success btn-md d-flex align-items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-whatsapp me-2" viewBox="0 0 16 16">
-                                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
-                            </svg>
-                            <small>Daftar Sekarang</small>
+                        <div class="chat-bubble">
+                            <div class="chat-header">
+                                <h2>Hi Meraki People!</h2>
+                                <p>Admin kami sedang online, chat untuk memulai diskusi tentang Pelatihan K3.</p>
+                            </div>
+                            <div class="chat-body">
+                                <div class="chat-account">
+                                    <img src="path/to/naja-image.jpg" alt="Alive Mulyanto" class="chat-img">
+                                    <div class="chat-info">
+                                        <h3>Account Executive</h3>
+                                        <p>Alive Mulyanto</p>
+                                        <a href="" class="chat-link">Chat</a>
+                                    </div>
+                                </div>
+                                <div class="chat-account">
+                                    <img src="path/to/ibnu-image.jpg" alt="Firman Wijaya" class="chat-img">
+                                    <div class="chat-info">
+                                        <h3>Account Executive</h3>
+                                        <p>Firman Wijaya</p>
+                                        <a href="" class="chat-link">Chat</a>
+                                    </div>
+                                </div>
+                                <div class="chat-account">
+                                    <img src="path/to/ibnu-image.jpg" alt="Elita Nur" class="chat-img">
+                                    <div class="chat-info">
+                                        <h3>Account Executive</h3>
+                                        <p>Elita Nur</p>
+                                        <a href="" class="chat-link">Chat</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-footer">
+                                <p>Phone Call: <a href="tel:+6282123113337">0821-2311-3337</a></p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success btn-md d-flex align-items-center whatsapp-button">
+                            <a href="#" class="btn btn-success btn-md d-flex align-items-center whatsapp-button">
+                                <i class="fab fa-whatsapp me-2"></i>
+                                <small>Butuh bantuan? Klik disini!</small>
+                            </a>
                         </button>
                     </div>
                 </div>
             </div>
+            <script>
+                document.querySelector('.whatsapp-button').addEventListener('click', function() {
+                    const chatBubble = document.querySelector('.chat-bubble');
+                    chatBubble.style.display = chatBubble.style.display === 'block' ? 'none' : 'block';
+                });
+
+            </script>
 
             <section id="about" class="about section my-3 py-5" style="background-color: #f8f9fa;">
                 <div class="container-section-title text-center">
                     <h2>About Us</h2>
-                    <hr class="col-1 mx-auto  border-dark opacity-100 border-2 mt-3 mb-3">
+                    <hr class="col-1 mx-auto border-dark opacity-100 border-2 mt-3 mb-3">
                 </div>
                 <div class="container">
                     <div class="row mx-auto col-lg-12">
@@ -165,36 +299,36 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                Customized Training
+                                                Pelatihan yang Disesuaikan
                                             </button>
                                         </h2>
                                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#whyUsAccordion">
                                             <div class="accordion-body">
-                                                Our training programs are tailored to meet the specific needs of your organization, ensuring relevant and impactful learning experiences.
+                                                Program pelatihan kami dirancang untuk memenuhi kebutuhan spesifik organisasi Anda, memastikan pengalaman belajar yang relevan dan berdampak.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingTwo">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                Expert Instructors
+                                                Instruktur Ahli
                                             </button>
                                         </h2>
                                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#whyUsAccordion">
                                             <div class="accordion-body">
-                                                Our courses are led by industry experts with years of experience, providing you with the knowledge and skills you need to succeed.
+                                                Kursus kami dipimpin oleh para pakar industri dengan pengalaman bertahun-tahun, memberi Anda pengetahuan dan keterampilan yang Anda butuhkan untuk sukses.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingThree">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                Flexible Scheduling
+                                                Penjadwalan Fleksibel
                                             </button>
                                         </h2>
                                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#whyUsAccordion">
                                             <div class="accordion-body">
-                                                We offer flexible scheduling options to fit the busy schedules of our clients, ensuring that training can be conducted at the most convenient times.
+                                                Kami menawarkan pilihan penjadwalan yang fleksibel agar sesuai dengan jadwal sibuk klien kami, memastikan bahwa pelatihan dapat dilakukan pada waktu yang paling sesuai.
                                             </div>
                                         </div>
                                     </div>
@@ -202,7 +336,7 @@
                             </div>
                         </div>
                         <div class="col-lg-5 order-1 order-lg-2 text-center">
-                            <img src="your-image-url.jpg" class="img-fluid rounded" alt="Why Us">
+                            <img src="assets/Img/web home-100.jpg" class="img-fluid rounded" alt="Why Us">
                         </div>
                     </div>
                 </div>
@@ -220,6 +354,9 @@
                         </li>
                         <li class="nav-item">
                             <button class="nav-link" onclick="showSection('bnsp')">BNSP</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" onclick="showSection('bnsp')">Internal</button>
                         </li>
                     </ul>
 
@@ -255,7 +392,7 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <a href="pelatihan_kemnaker.html" class="col-3  btn-lg btn btn-primary">Go Kemnaker</a>
+                            <a href="pelatihan_kemnaker.html" class="col-3  btn-lg btn btn-primary">Read More</a>
                         </div>
                     </div>
 
@@ -267,10 +404,19 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <a href="pelatihan_bnsp.html" class="col-3  btn-lg btn btn-primary">Go BNSP</a>
+                            <a href="pelatihan_bnsp.html" class="col-3  btn-lg btn btn-primary">Read More</a>
                         </div>
                     </div>
-                </div>
+                    <div id="internal" class="filter-section d-none">
+                        <div class="row gy-4">
+                            <div class="col-12">
+                                <img src="assets/Img/Pelatihan/singleimage-100.jpg" class="img-fluid" alt="Single Image">
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="pelatihan_bnsp.html" class="col-3  btn-lg btn btn-primary">Read More</a>
+                        </div>
+                    </div>
             </section>
 
             <script>
@@ -289,7 +435,7 @@
             <section id="portfolio" class="py-5 bg-light">
                 <div class="container text-center mb-4">
                     <h2>Portfolio</h2>
-                    <hr class="col-1 mx-auto  border-dark opacity-100 border-2 mt-3 mb-3">
+                    <hr class="col-1 mx-auto border-dark opacity-100 border-2 mt-3 mb-3">
                     <p>Portfolio kami berisi hasil pelatihan yang telah kami lakukan.</p>
                 </div>
                 <div class="container mt-5">
@@ -407,7 +553,7 @@
             <div class="text-center bg-dark py-5">
                 <h4><span class="text-white">Apa yang kalian tunggu?</h4>
                 <h4 class="text-white">Segera Mulai!</h4>
-                   <a href="#get" class="btn btn-primary mx-auto mt-3">Get Started</a>
+                   <a href="pelatihan.html" class="btn btn-primary mx-auto mt-3">Get Started</a>
             </div>
 
             <!--<section id="certificate" class="py-5">
