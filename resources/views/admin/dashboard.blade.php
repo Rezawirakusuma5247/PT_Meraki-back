@@ -40,10 +40,10 @@
                   <div class="col-lg-6">
                     <div class="card card-primary card-outline mb-3">
                       <div class="card-header font-weight-bold">
-                        <h5 class=" font-weight-bold">Data Jadwal</h5>
+                        <h5 class=" font-weight-bold">Data Category</h5>
                       </div>
                       <div class="card-body">
-                        {{--  <a href="{{ route('event.index') }}" class="btn btn-block btn-primary col-3 mx-auto">Check!</a>  --}}
+                        <a href="{{ route('categories.index') }}" class="btn btn-block btn-primary col-3 mx-auto">Check!</a>
                       </div>
                     </div>
                   </div>

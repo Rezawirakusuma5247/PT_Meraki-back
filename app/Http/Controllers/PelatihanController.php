@@ -4,61 +4,76 @@ namespace App\Http\Controllers;
 
 use App\Models\Pelatihan;
 use Illuminate\Http\Request;
-
+use App\Models\Category;
 class PelatihanController extends Controller
 {
     public function index()
     {
-        $pelatihans = Pelatihan::all();
-        return view('pelathian.index', compact('pelatihans'));
+        $categories = Category::all();
+        $pelatihans = Pelatihan::with('category')->get(); // Eager load category
+        return view('pelathian.index', compact('pelatihans', 'categories'));
     }
+    
     public function create()
     {
-        return view('pelathian.create');
+        $categories = Category::all(); // Fetch all categories
+        return view('pelathian.create', compact('categories'));
     }
+    
     public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required',
-            'image' => 'required|image',
-            'description' => 'required',
-        ]);
-        $imagePath = $request->file('image')->store('images', 'public');
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'image' => 'nullable|image',
+        'description' => 'required|string',
+        'category_id' => 'required|exists:categories,id',
+    ]);
+    
+    $imagePath = $request->file('image') ? $request->file('image')->store('images', 'public') : null;
 
-        Pelatihan::create([
+    Pelatihan::create([
+        'title' => $request->title,
+        'image' => $imagePath,
+        'description' => $request->description,
+        'category_id' => $request->category_id,
+    ]);
+
+    return redirect()->route('pelatihans.index')->with('success', 'Pelatihan created successfully.');
+}
+
+    public function edit(Pelatihan $pelatihan)
+    {
+        $categories = Category::all(); // Fetch all categories
+        return view('pelathian.edit', compact('pelatihan', 'categories'));
+    }
+    
+    public function update(Request $request, Pelatihan $pelatihan)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'image' => 'nullable|image',
+        'description' => 'required|string',
+        'category_id' => 'required|exists:categories,id',
+    ]);
+    
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('images', 'public');
+        $pelatihan->update([
             'title' => $request->title,
             'image' => $imagePath,
             'description' => $request->description,
+            'category_id' => $request->category_id,
         ]);
-
-        return redirect()->route('pelatihans.index')->with('success', 'Pelatihan created successfully.');
-    }
-    public function edit(Pelatihan $pelatihan)
-    {
-        return view('pelathian.edit', compact('pelatihan'));
-    }
-    public function update(Request $request, Pelatihan $pelatihan)
-    {
-        $request->validate([
-            'title' => 'required',
-            'image' => 'image',
-            'description' => 'required',
+    } else {
+        $pelatihan->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'category_id' => $request->category_id,
         ]);
-
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-            $pelatihan->update([
-                'title' => $request->title,
-                'image' => $imagePath,
-                'description' => $request->description,
-            ]);
-        } else {
-            $pelatihan->update($request->only('title', 'description'));
-        }
-
-        return redirect()->route('pelatihans.index', $pelatihan->id)
-        ->with('success', 'Pelatihan updated successfully.');
     }
+
+    return redirect()->route('pelatihans.index')->with('success', 'Pelatihan updated successfully.');
+}
     public function destroy(Pelatihan $pelatihan)
     {
         $pelatihan->delete();

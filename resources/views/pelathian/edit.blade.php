@@ -11,6 +11,15 @@
             <input type="text" class="form-control" id="title" name="title" value="{{ $pelatihan->title }}" required>
         </div>
         <div class="form-group my-3">
+            <label for="category_id">Category</label>
+            <select class="form-control" id="category_id" name="category_id" required>
+                <option value="">Select Category</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ $pelatihan->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group my-3">
             <label for="image">Image</label>
             <input type="file" class="form-control" id="image" name="image">
         </div>
