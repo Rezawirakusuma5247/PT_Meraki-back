@@ -213,57 +213,11 @@
                             <h4 style="color: #b04c87bf;">PT. Meraki Anugerah Pratama</h4>
                             <p>PT Meraki menyiapkan segala macam pelatihan yang anda butuhkan! <br>Lakukan hal terbaik untuk hasil yang terbaik!</p>
                         </div>
-                        <div class="chat-bubble">
-                            <div class="chat-header">
-                                <h2>Hi Meraki People!</h2>
-                                <p>Admin kami sedang online, chat untuk memulai diskusi tentang Pelatihan K3.</p>
-                            </div>
-                            <div class="chat-body">
-                                <div class="chat-account">
-                                    <img src="path/to/naja-image.jpg" alt="Alive Mulyanto" class="chat-img">
-                                    <div class="chat-info">
-                                        <h3>Account Executive</h3>
-                                        <p>Alive Mulyanto</p>
-                                        <a href="" class="chat-link">Chat</a>
-                                    </div>
-                                </div>
-                                <div class="chat-account">
-                                    <img src="path/to/ibnu-image.jpg" alt="Firman Wijaya" class="chat-img">
-                                    <div class="chat-info">
-                                        <h3>Account Executive</h3>
-                                        <p>Firman Wijaya</p>
-                                        <a href="" class="chat-link">Chat</a>
-                                    </div>
-                                </div>
-                                <div class="chat-account">
-                                    <img src="path/to/ibnu-image.jpg" alt="Elita Nur" class="chat-img">
-                                    <div class="chat-info">
-                                        <h3>Account Executive</h3>
-                                        <p>Elita Nur</p>
-                                        <a href="" class="chat-link">Chat</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat-footer">
-                                <p>Phone Call: <a href="tel:+6282123113337">0821-2311-3337</a></p>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success btn-md d-flex align-items-center whatsapp-button">
-                            <a href="#" class="btn btn-success btn-md d-flex align-items-center whatsapp-button">
-                                <i class="fab fa-whatsapp me-2"></i>
-                                <small>Butuh bantuan? Klik disini!</small>
-                            </a>
-                        </button>
+
                     </div>
                 </div>
             </div>
-            <script>
-                document.querySelector('.whatsapp-button').addEventListener('click', function() {
-                    const chatBubble = document.querySelector('.chat-bubble');
-                    chatBubble.style.display = chatBubble.style.display === 'block' ? 'none' : 'block';
-                });
 
-            </script>
 
             <section id="about" class="about section my-3 py-5" style="background-color: #f8f9fa;">
                 <div class="container-section-title text-center">
@@ -344,94 +298,74 @@
             <section id="services" class="py-5 bg-light">
                 <div class="container text-center mb-4">
                     <h2>Pelatihan</h2>
-                    <hr class="col-1 mx-auto  border-dark opacity-100 border-2 mt-3 mb-3">
-                    <p>Pelatihan kami meliputi Pelatihan KEMNAKER RI dan Pelatihan BNSP.</p>
+                    <hr class="col-1 mx-auto border-dark opacity-100 border-2 mt-3 mb-3">
+                    <p>Pelatihan kami meliputi berbagai kategori pelatihan.</p>
 
                     <!-- Filter Buttons -->
                     <ul class="nav nav-pills justify-content-center mb-4 g-5" id="filter-buttons">
-                        <li class="nav-item">
-                            <button class="nav-link active" onclick="showSection('kemnaker')">KEMNAKER RI</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link" onclick="showSection('bnsp')">BNSP</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link" onclick="showSection('bnsp')">Internal</button>
-                        </li>
+                        @foreach($categories as $category)
+                            <li class="nav-item">
+                                <button class="nav-link" onclick="showSection('{{ $category->id }}')">{{ $category->name }}</button>
+                            </li>
+                        @endforeach
                     </ul>
 
-                    <!-- KEMNAKER Section -->
-                    <div id="kemnaker" class="filter-section">
-                        <div class="row gy-4">
-                            <div class="col-md-4 col-sm-6 mx-auto">
-                                <img src="assets/Img/flayer/gambar 1.jpg" class="img-fluid" alt="Image 1">
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <img src="assets/Img/flayer/gambar 2.jpg" class="img-fluid" alt="Image 2">
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <img src="assets/Img/flayer/gambar 3.jpg" class="img-fluid" alt="Image 3">
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <img src="assets/Img/flayer/gambar 4.jpg" class="img-fluid" alt="Image 4">
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <img src="assets/Img/flayer/gambar 5.jpg" class="img-fluid" alt="Image 5">
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <img src="assets/Img/flayer/gambar 6.jpg" class="img-fluid" alt="Image 6">
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <img src="assets/Img/flayer/gambar 7.jpg" class="img-fluid" alt="Image 7">
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <img src="assets/Img/flayer/gambar 8.jpg" class="img-fluid" alt="Image 8">
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <img src="assets/Img/flayer/gambar 9.jpg" class="img-fluid" alt="Image 9">
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <a href="pelatihan_kemnaker.html" class="col-3  btn-lg btn btn-primary">Read More</a>
-                        </div>
-                    </div>
+                    <!-- Dynamic Sections -->
+                    @foreach($categories as $category)
+                        <div id="{{ $category->id }}" class="filter-section d-none">
+                            <div class="row gy-4">
+                                @foreach($pelatihans->where('category_id', $category->id) as $pelatihan)
+                                    <div class="col-md-4 mb-4">
+                                        <img src="{{ asset('storage/' . $pelatihan->image) }}" alt="{{ $pelatihan->title }}" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal{{ $pelatihan->id }}">
 
-                    <!-- BNSP Section -->
-                    <div id="bnsp" class="filter-section d-none">
-                        <div class="row gy-4">
-                            <div class="col-12">
-                                <img src="assets/Img/Pelatihan/singleimage-100.jpg" class="img-fluid" alt="Single Image">
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="imageModal{{ $pelatihan->id }}" tabindex="-1" aria-labelledby="imageModalLabel{{ $pelatihan->id }}" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="imageModalLabel{{ $pelatihan->id }}">{{ $pelatihan->title }}</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <img src="{{ asset('storage/' . $pelatihan->image) }}" alt="{{ $pelatihan->title }}" class="img-fluid mb-3">
+                                                        <p>{{ $pelatihan->description }}</p>
+                                                        <p><strong>Category:</strong> {{ $pelatihan->category->name ?? 'Uncategorized' }}</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <a href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER&text=Halo,%20saya%20ingin%20mendaftar%20untuk%20pelatihan%20{{ urlencode($pelatihan->title) }}" class="btn btn-success btn-md">
+                                                            <i class="fab fa-whatsapp me-2"></i> Daftar Sekarang!
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Modal -->
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
-                        <div class="mt-4">
-                            <a href="pelatihan_bnsp.html" class="col-3  btn-lg btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                    <div id="internal" class="filter-section d-none">
-                        <div class="row gy-4">
-                            <div class="col-12">
-                                <img src="assets/Img/Pelatihan/singleimage-100.jpg" class="img-fluid" alt="Single Image">
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <a href="pelatihan_bnsp.html" class="col-3  btn-lg btn btn-primary">Read More</a>
-                        </div>
-                    </div>
+                    @endforeach
+                </div>
             </section>
-
             <script>
-            function showSection(section) {
-                document.querySelectorAll('.filter-section').forEach(function(section) {
-                    section.classList.add('d-none');
+                function showSection(section) {
+                    document.querySelectorAll('.filter-section').forEach(function(el) {
+                        el.classList.add('d-none');
+                    });
+                    document.getElementById(section).classList.remove('d-none');
+                    document.querySelectorAll('#filter-buttons .nav-link').forEach(function(button) {
+                        button.classList.remove('active');
+                    });
+                    event.target.classList.add('active');
+                }
+                document.addEventListener('DOMContentLoaded', function() {
+                    const firstButton = document.querySelector('#filter-buttons .nav-link');
+                    if (firstButton) {
+                        firstButton.click();
+                    }
                 });
-                document.getElementById(section).classList.remove('d-none');
-                document.querySelectorAll('#filter-buttons .nav-link').forEach(function(button) {
-                    button.classList.remove('active');
-                });
-                event.target.classList.add('active');
-            }
             </script>
-
             <section id="portfolio" class="py-5 bg-light">
                 <div class="container text-center mb-4">
                     <h2>Portfolio</h2>
@@ -656,6 +590,54 @@
                     </div>
                 </div>
             </section>
+            <div class="chat-bubble">
+                <div class="chat-header">
+                    <h2>Hi Meraki People!</h2>
+                    <p>Admin kami sedang online, chat untuk memulai diskusi tentang Pelatihan K3.</p>
+                </div>
+                <div class="chat-body">
+                    <div class="chat-account">
+                        <img src="path/to/naja-image.jpg" alt="Alive Mulyanto" class="chat-img">
+                        <div class="chat-info">
+                            <h3>Account Executive</h3>
+                            <p>Alive Mulyanto</p>
+                            <a href="" class="chat-link">Chat</a>
+                        </div>
+                    </div>
+                    <div class="chat-account">
+                        <img src="path/to/ibnu-image.jpg" alt="Firman Wijaya" class="chat-img">
+                        <div class="chat-info">
+                            <h3>Account Executive</h3>
+                            <p>Firman Wijaya</p>
+                            <a href="" class="chat-link">Chat</a>
+                        </div>
+                    </div>
+                    <div class="chat-account">
+                        <img src="path/to/ibnu-image.jpg" alt="Elita Nur" class="chat-img">
+                        <div class="chat-info">
+                            <h3>Account Executive</h3>
+                            <p>Elita Nur</p>
+                            <a href="" class="chat-link">Chat</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-footer">
+                    <p>Phone Call: <a href="tel:+6282123113337">0821-2311-3337</a></p>
+                </div>
+            </div>
+            <button type="button" class="btn btn-success btn-md d-flex align-items-center whatsapp-button">
+                <a href="#" class="btn btn-success btn-md d-flex align-items-center whatsapp-button">
+                    <i class="fab fa-whatsapp me-2"></i>
+                    <small>Butuh bantuan? Klik disini!</small>
+                </a>
+            </button>
+            <script>
+                document.querySelector('.whatsapp-button').addEventListener('click', function() {
+                    const chatBubble = document.querySelector('.chat-bubble');
+                    chatBubble.style.display = chatBubble.style.display === 'block' ? 'none' : 'block';
+                });
+
+            </script>
             <footer id="footer" class="footer">
         <div class="container py-3">
             <div class="row mx-auto mt-3">

@@ -5,9 +5,9 @@ use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\CategoryController;
 
-Route::get('/home', function () {
-    return view('welcome');
-});
+
+Route::get('/home', [ViewController::class, 'index']);
+
 
 Route::get('/pelatihans', [PelatihanController::class, 'index'])->name('pelatihans.index');
 Route::get('/pelatihans/create', [PelatihanController::class, 'create'])->name('pelatihans.create');
