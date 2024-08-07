@@ -52,16 +52,13 @@
                         <a class="nav-link active text-white" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{route('pelatihans.index')}}">Admin</a>
+                        <a class="nav-link text-white" href="{{route('admin.dashboard')}}">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#about">About</a>
+                        <a class="nav-link text-white" href="{{route('pelatihan')}}">Pelatihan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="pelatihan.html">Pelatihan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="certificate.html">Certificate</a>
+                        <a class="nav-link text-white" href="{{ route('certificate') }}">Certificate</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,7 +89,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="contact.html">Contact</a>
+                        <a class="nav-link text-white" href="{{route('contact')}}">Contact</a>
                     </li>
                 </ul>
             </div>

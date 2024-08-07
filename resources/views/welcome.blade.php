@@ -145,16 +145,16 @@
                         <a class="nav-link text-white" href="{{route('admin.dashboard')}}">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="home.html">Home</a>
+                        <a class="nav-link active text-white" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="pelatihan.html">Pelatihan</a>
+                        <a class="nav-link text-white" href="{{ route('pelatihan') }}">Pelatihan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="certificate.html">Certificate</a>
+                        <a class="nav-link text-white" href="{{ route('certificate') }}">Certificate</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -184,13 +184,12 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="contact.html">Contact</a>
+                        <a class="nav-link text-white" href="{{ route('contact') }}">Contact</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <main class="main bg-light" id="get">
         <section id="tampilanawal" class="py-4" style="background-color: #b04c87bf;">
             <div class="container">
@@ -204,7 +203,7 @@
                     </div>
                 </div>
             </div>
-            </section>
+        </section>
             <div class="container" >
                 <div class="row gy-4">
                     <div class="col-lg-12 order-2 order-lg-1 d-flex justify-content-between align-items-center bg-light p-3">
@@ -217,8 +216,6 @@
                     </div>
                 </div>
             </div>
-
-
             <section id="about" class="about section my-3 py-5" style="background-color: #f8f9fa;">
                 <div class="container-section-title text-center">
                     <h2>About Us</h2>
@@ -375,93 +372,25 @@
                 <div class="container mt-5">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            @foreach($slides->chunk(3) as $index => $chunk)
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}" aria-current="true" aria-label="Slide {{ $index + 1 }}"></button>
+                            @endforeach
                         </div>
                         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
-                                <!-- Slide 1 -->
-                                <div class="carousel-item active">
-                                    <div class="row d-none d-lg-flex">
-                                        <div class="col-lg-4 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home4.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home5.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home6.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
+                                @foreach($slides->chunk(3) as $index => $chunk)
+                                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                        <div class="row">
+                                            @foreach($chunk as $slide)
+                                                <div class="col-lg-4 mt-3 d-flex justify-content-center">
+                                                    <div class="card">
+                                                        <img src="{{ asset('storage/' . $slide->image) }}" class="card-img-top" alt="...">
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
-                                    <div class="row d-flex d-lg-none">
-                                        <div class="col-12 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home4.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide 2 -->
-                                <div class="carousel-item">
-                                    <div class="row d-none d-lg-flex">
-                                        <div class="col-lg-4 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home4.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home5.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home6.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row d-flex d-lg-none">
-                                        <div class="col-12 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home5.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide 3 -->
-                                <div class="carousel-item">
-                                    <div class="row d-none d-lg-flex">
-                                        <div class="col-lg-4 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home4.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home5.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home6.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row d-flex d-lg-none">
-                                        <div class="col-12 mt-3 d-flex justify-content-center">
-                                            <div class="card">
-                                                <img src="{{ asset('asset/img/home6.jpg') }}" class="card-img-top" alt="...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -472,15 +401,6 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: black;"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: black;"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
                     </div>
                 </div>
             </section>
@@ -489,45 +409,6 @@
                 <h4 class="text-white">Segera Mulai!</h4>
                    <a href="pelatihan.html" class="btn btn-primary mx-auto mt-3">Get Started</a>
             </div>
-
-            <!--<section id="certificate" class="py-5">
-                <div class="container text-center mb-4">
-                    <h2>Certificate</h2>
-                    <hr class="col-1 mx-auto border border-dark opacity-100 border-2 mt-3 mb-3">
-                    <h6>Certificate kami telah diberikan kepada pelatih yang telah melakukan pelatihan dan sertifikasi.</h6>
-                </div>
-                <div class="container mt-5">
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        <div class="col d-flex justify-content-center">
-                            <div class="card" style="width: 18rem;">
-                                <img src="assets/Img/Certificate.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Certificate</h5>
-                                    <p class="card-text">Example Certificate</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col d-flex justify-content-center">
-                            <div class="card" style="width: 18rem;">
-                                <img src="assets/Img/Certificate.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Certificate</h5>
-                                    <p class="card-text">Example Certificate</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col d-flex justify-content-center">
-                            <div class="card" style="width: 18rem;">
-                                <img src="assets/Img/Certificate.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Certificate</h5>
-                                    <p class="card-text">Example Certificate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
             <section id="contact" class="contact section dark-background">
                 <div class="container mt-5 mb-5">
                     <div class="row justify-content-center">
@@ -543,53 +424,55 @@
                             <p><i class="fas fa-envelope"></i> info@merakip.com</p>
                         </div>
                         <div class="col-md-6">
-                            <form>
+                            <form action="{{ route('contact.store') }}" method="POST">
+                                @csrf
                                 <div class="form-group row mt-3 mb-3">
                                     <div class="col-md-6">
                                         <label for="name" class="mb-1">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="email" class="mb-1">Email</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
                                     </div>
                                 </div>
                                 <div class="form-group mt-3 mb-3">
                                     <label for="subject" class="mb-1">Subject</label>
-                                    <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject">
                                 </div>
                                 <div class="form-group mt-3 mb-3">
                                     <label for="message" class="mb-1">Message</label>
-                                    <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block mt-3 mb-3 col-lg-12">Send Message</button>
                             </form>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="footer-newsletter py-3 mt-5 mb-5">
-                    <div class="container">
-                        <div class="row justify-content-center text-center">
-                            <div class="col-lg-6">
-                                <h4>Bergabunglah dengan Buletin Kami</h4>
-                                <p>Berlangganan buletin kami dan dapatkan berita terbaru tentang informasi dan layanan kami!</p>
-                                <form>
-                                    <div class="input-group mb-3">
-                                        <input type="email" class="form-control" placeholder="Masukan email-mu" aria-label="Enter your email" aria-describedby="button-subscribe">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="submit" id="button-subscribe">Subscribe</button>
-                                        </div>
-                                    </div>
-                                    <div class="loading d-none">Loading</div>
-                                    <div class="error-message d-none">An error occurred. Please try again.</div>
-                                    <div class="sent-message d-none">Your subscription request has been sent. Thank you!</div>
-                                </form>
-                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <div class="footer-newsletter py-3 mt-5 mb-5">
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-6">
+                            <h4>Bergabunglah dengan Buletin Kami</h4>
+                            <p>Berlangganan buletin kami dan dapatkan berita terbaru tentang informasi dan layanan kami!</p>
+                            <form action="{{ route('subcription.store') }}" method="POST">
+                                @csrf
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" name="email" placeholder="Masukan email-mu" aria-label="Enter your email" aria-describedby="button-subscribe">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="submit" id="button-subscribe">Subscribe</button>
+                                    </div>
+                                </div>
+                                <div class="loading d-none">Loading</div>
+                                <div class="error-message d-none">An error occurred. Please try again.</div>
+                                <div class="sent-message d-none">Your subscription request has been sent. Thank you!</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="chat-bubble">
                 <div class="chat-header">
                     <h2>Hi Meraki People!</h2>

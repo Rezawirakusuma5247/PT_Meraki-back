@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SlideController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SubcriptionController;
 
 
 Route::get('/home', [ViewController::class, 'index']);
@@ -25,3 +28,22 @@ Route::post('/categories', [CategoryController::class, 'store'])->name('categori
 Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+Route::get('slides', [SlideController::class, 'index'])->name('slides.index');
+Route::get('slides/create', [SlideController::class, 'create'])->name('slides.create');
+Route::post('slides', [SlideController::class, 'store'])->name('slides.store');
+Route::get('slides/{slide}/edit', [SlideController::class, 'edit'])->name('slides.edit');
+Route::put('slides/{slide}', [SlideController::class, 'update'])->name('slides.update');
+Route::delete('slides/{slide}', [SlideController::class, 'destroy'])->name('slides.destroy');
+
+Route::get('/admin/contacts', [ContactController::class, 'index'])->name('contacts.index');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('contact', [ViewController::class, 'view_contact'])->name('contact');
+Route::get('/admin/subcriptions', [SubcriptionController::class, 'index'])->name('subription.index');
+Route::post('/subcription', [SubcriptionController::class, 'store'])->name('subcription.store');
+Route::get('pelatihan', [ViewController::class, 'view_pelatihan'])->name('pelatihan');
+Route::get('certificate', [ViewController::class, 'view_certificate'])->name('certificate');
+Route::get('informasi', [ViewController::class, 'view_informasi'])->name('informasi');
+Route::get('thanks', [ViewController::class, 'view_thanks'])->name('thanks');
+
+
