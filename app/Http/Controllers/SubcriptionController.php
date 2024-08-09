@@ -2,28 +2,46 @@
 
 
 namespace App\Http\Controllers;
+
 use App\Models\Subcription;
 use Illuminate\Http\Request;
+use App\Exports\SubcriptionsExport;
+use App\Imports\SubcriptionsImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SubcriptionController extends Controller
 {
-
     public function index()
     {
         $subcriptions = Subcription::all();
         return view('subcription.index', compact('subcriptions'));
     }
-       public function store(Request $request)
-        {
-            $request->validate([
-                'email' => 'required|string|email|max:255',
-            ]);
 
-            $subcription = Subcription::create($request->all());
+    public function store(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email|max:255',
+        ]);
 
-            // Send email
-            // Mail::to('info@merakip.com')->send(new ContactMessageMail($contact));
+        Subcription::create($request->all());
 
-            return redirect()->back()->with('success', 'Message sent successfully!');
-        }
+        return redirect()->back()->with('success', 'Message sent successfully!');
     }
+
+    public function export()
+    {
+        return Excel::download(new SubcriptionsExport, 'subcriptions.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xls,xlsx'
+        ]);
+
+        Excel::import(new SubcriptionsImport, $request->file('file'));
+
+        return redirect()->route('thanks')->with('success', 'Data imported successfully!');
+    }
+}
+

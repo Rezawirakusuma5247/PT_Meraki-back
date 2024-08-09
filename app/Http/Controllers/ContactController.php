@@ -31,7 +31,7 @@ class ContactController extends Controller
         // Send email
         // Mail::to('info@merakip.com')->send(new ContactMessageMail($contact));
 
-        return redirect()->back()->with('success', 'Message sent successfully!');
+        return redirect()->route('thanks')->with('success', 'Message sent successfully!');
     }
 
     // (Additional CRUD methods like show, edit, update, destroy can be added as needed)

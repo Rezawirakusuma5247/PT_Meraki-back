@@ -33,7 +33,7 @@
                         <h5 class=" font-weight-bold">Data Pelatihan</h5>
                       </div>
                       <div class="card-body">
-                        <a href="{{ route('pelatihans.index') }}" class="btn btn-block btn-primary col-3 mx-auto">Check!</a>
+                        <a href="{{ route('pelatihans.index') }}" class="btn btn-block btn-primary col-4 mx-auto">Customize Data</a>
                       </div>
                     </div>
                   </div>
@@ -43,7 +43,7 @@
                         <h5 class=" font-weight-bold">Data Category</h5>
                       </div>
                       <div class="card-body">
-                        <a href="{{ route('categories.index') }}" class="btn btn-block btn-primary col-3 mx-auto">Check!</a>
+                        <a href="{{ route('categories.index') }}" class="btn btn-block btn-primary col-4 mx-auto">Customize Data</a>
                       </div>
                     </div>
                   </div>
@@ -55,7 +55,7 @@
                         <h5 class=" font-weight-bold">Data Portofolio</h5>
                       </div>
                       <div class="card-body">
-                        <a href="{{ route('slides.index') }}" class="btn btn-block btn-primary col-3 mx-auto">Check!</a>
+                        <a href="{{ route('slides.index') }}" class="btn btn-block btn-primary col-4 mx-auto">Customize Data</a>
                       </div>
                     </div>
                   </div>
@@ -65,7 +65,7 @@
                         <h5 class=" font-weight-bold">Data Contact</h5>
                       </div>
                       <div class="card-body">
-                        <a href="{{ route('contacts.index') }}" class="btn btn-block btn-primary col-3 mx-auto">Check!</a>
+                        <a href="{{ route('contacts.index') }}" class="btn btn-block btn-primary col-4 mx-auto">Customize Data</a>
                       </div>
                     </div>
                   </div>
@@ -77,7 +77,7 @@
                           <h5 class=" font-weight-bold">Data Subcription</h5>
                         </div>
                         <div class="card-body">
-                          <a href="{{ route('subription.index') }}" class="btn btn-block btn-primary col-3 mx-auto">Check!</a>
+                          <a href="{{ route('subcription.index') }}" class="btn btn-block btn-primary col-4 mx-auto">Customize Data</a>
                         </div>
                       </div>
                     </div>

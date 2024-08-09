@@ -142,9 +142,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{route('admin.dashboard')}}">Admin</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
