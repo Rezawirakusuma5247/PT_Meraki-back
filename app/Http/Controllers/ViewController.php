@@ -28,12 +28,15 @@ class ViewController extends Controller
 
     public function view_pelatihan()
     {
-        return view('user.pelatihan');
+        $categories = Category::all();
+        $pelatihans = Pelatihan::with('category')->get();
+
+        return view('user.pelatihan', compact('pelatihans', 'categories'));
     }
 
     public function view_certificate()
     {
-        return view('user.certificate'); 
+        return view('user.certificate');
     }
 
     public function view_informasi()

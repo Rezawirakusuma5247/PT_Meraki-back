@@ -24,8 +24,8 @@ class SubcriptionController extends Controller
         ]);
 
         Subcription::create($request->all());
+        return redirect()->route('thanks')->with('success', 'Data imported successfully!');
 
-        return redirect()->back()->with('success', 'Message sent successfully!');
     }
 
     public function export()
@@ -41,7 +41,7 @@ class SubcriptionController extends Controller
 
         Excel::import(new SubcriptionsImport, $request->file('file'));
 
-        return redirect()->route('thanks')->with('success', 'Data imported successfully!');
+        return redirect()->back()->with('success', 'Message sent successfully!');
     }
 }
 

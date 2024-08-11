@@ -16,6 +16,13 @@ return new class extends Migration
             $table->string('title');
             $table->string('image');
             $table->string('description');
+            $table->string('benefit');
+            $table->string('materi');
+            $table->string('durasi');
+            $table->string('why');
+            $table->string('jadwal');
+            $table->string('persyaratan');
+            $table->string('method');
             $table->timestamps();
         });
     }

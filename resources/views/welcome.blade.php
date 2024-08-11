@@ -158,27 +158,22 @@
                             Info Update
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="">Jadwal Pelatihan K3</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 2</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 3</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 4</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 5</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="">Pelatihan BNSP</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 2</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 3</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 4</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 5</a></li>
-                                </ul>
-                            </li>
+                            @foreach($categories as $category)
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">{{ $category->name }}</a>
+                                    <ul class="dropdown-menu">
+                                        @foreach($category->pelatihans as $pelatihan)
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('pelatihans.jadwal.category', $category->name) }}">
+                                                    {{ $pelatihan->title }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endforeach
                         </ul>
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('contact') }}">Contact</a>
@@ -327,13 +322,13 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                        <a href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER&text=Halo,%20saya%20ingin%20mendaftar%20untuk%20pelatihan%20{{ urlencode($pelatihan->title) }}" class="btn btn-success btn-md">
-                                                            <i class="fab fa-whatsapp me-2"></i> Daftar Sekarang!
+                                                        <a href="{{ route('pelatihan.show', $pelatihan->id) }}" class="btn btn-primary btn-md">Daftar Sekarang!
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <!-- End Modal -->
                                     </div>
                                 @endforeach

@@ -9,7 +9,7 @@ class Pelatihan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'image', 'description', 'category_id'];
+    protected $fillable = ['title', 'image', 'description', 'benefit', 'materi', 'durasi', 'why', 'jadwal', 'persyaratan', 'method', 'category_id'];
 
     public function category()
     {

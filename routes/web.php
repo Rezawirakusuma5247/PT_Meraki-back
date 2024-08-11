@@ -8,13 +8,19 @@ use App\Http\Controllers\SlideController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubcriptionController;
 use App\Http\Controllers\LoginController;
+use App\Http\Middleware\RoleMiddleware;
+use App\Http\Middleware\CheckAuth;
+
 
 Route::get('/home', [ViewController::class, 'index'])->name('welcome');
 Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::post('/login-proses', [LoginController::class,'login_proses'])->name('login-proses');
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
+
+
+
+Route::middleware(CheckAuth::class)->group(function () {
     Route::get('/Admin-Dashboard', [ViewController::class, 'dashboard_admin'])->name('admin.dashboard');
 
     Route::get('/pelatihans', [PelatihanController::class, 'index'])->name('pelatihans.index');
@@ -40,7 +46,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/admin/contacts', [ContactController::class, 'index'])->name('contacts.index');
 
-
     Route::get('/subcriptions/export', [SubcriptionController::class, 'export'])->name('subcriptions.export');
     Route::post('/subcriptions/import', [SubcriptionController::class, 'import'])->name('subcriptions.import');
     Route::get('/admin/subcriptions', [SubcriptionController::class, 'index'])->name('subcription.index');
@@ -54,5 +59,16 @@ Route::get('contact', [ViewController::class, 'view_contact'])->name('contact');
 Route::get('thanks', [ViewController::class, 'view_thanks'])->name('thanks');
 Route::post('/subcription', [SubcriptionController::class, 'store'])->name('subcription.store');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/pelatihan/{category}', [PelatihanController::class, 'showByCategory'])->name('pelatihan.category');
+Route::get('/pelatihan/detail/{id}', [PelatihanController::class, 'show'])->name('pelatihan.show');
+Route::get('/pelatihans/jadwal/{category}', [PelatihanController::class, 'showJadwalByCategory'])->name('pelatihans.jadwal.category');
+
+
+use App\Http\Controllers\NavbarController;
+
+Route::get('/layout', [NavbarController::class, 'main'])->name('main');
+
+
+
 
 

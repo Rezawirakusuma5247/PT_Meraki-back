@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Meraki Institute | Home</title>
-    <link rel="icon" href="assets/logo/Logo.png" class="">
+    <title> Meraki Institute</title>
+    <link rel="icon" href="{{ asset('assets/logo/Logo.png') }}" class="">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
+
     <style>
         .footer {
             background-color: #989FC1;
@@ -36,7 +39,11 @@
         }
     </style>
 </head>
-<body>
+<body class="hold-transition layout-top-nav">
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="{{ asset('assets/logo/Logo.png') }}" alt="AdminLTELogo" height="60" width="60">
+      </div>
+    <div class="wrapper">
     <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(176, 76, 135, 0.75);">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="#">
@@ -61,29 +68,19 @@
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Info Update
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="">Jadwal Pelatihan K3</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 2</a></li>
+                        {{--  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach($categories as $category)
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">{{ $category->name }}</a>
+                                    <ul class="dropdown-menu">
+                                        @foreach($category->pelatihans as $pelatihan)
+                                            <li><a class="dropdown-item" href="{{ route('pelatihans.jadwal', $pelatihan->id) }}">{{ $pelatihan->title }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endforeach
+                        </ul>  --}}
 
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 3</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 4</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 5</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="">Pelatihan BNSP</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 2</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 3</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 4</a></li>
-                                    <li><a class="dropdown-item" href="#">Deep Dropdown 5</a></li>
-                                </ul>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{route('contact')}}">Contact</a>
@@ -138,6 +135,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     </body>
     </html>
