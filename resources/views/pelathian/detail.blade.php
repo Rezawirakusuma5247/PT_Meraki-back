@@ -20,7 +20,7 @@
         @if($pelatihan->jadwal)
     <div class="mb-4 text-center">
         <h6>Jadwal Pelatihan</h6>
-        <img src="{{ asset('storage/' . $pelatihan->jadwal) }}" class="img-fluid col-6 mx-auto d-block" alt="Jadwal {{ $pelatihan->title }}">
+        <img src="{{ asset('storage/' . $pelatihan->jadwal) }}" class="img-fluid col-8 mx-auto d-block" alt="Jadwal {{ $pelatihan->title }}">
     </div>
 @endif
 
@@ -67,8 +67,18 @@
             </div>
         @endif
 
-        <div class="text-center">
-            <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
+        <div class="text-center ">
+            <a href="{{ url()->previous() }}" class="btn btn-secondary mt-5 mb-5">Back</a>
+            <a href="{{ route('registration', ['id' => $pelatihan->id]) }}" class="btn btn-primary mt-5 mb-5">Daftar Sekarang!</a>
+
+        </div>
+
+        <div class="text-center mt-4 mb-4">
+            <h6>ATAU HUBUNGI KAMI</h6>
+            <h6>Anda Ingin mendaftar pelatihan dengan MUDAH & CEPAT? Hubungi kami sekarang juga!</h6>
+            <h6>Phone: 0251-754-9585<br>Email: info@merakiap.com</h6>
+            <a href="tel:+622517549585" class="btn btn-warning mr-2">Phone</a>
+            <a href="https://wa.me/6281285527615" class="btn btn-success">WhatsApp</a>
         </div>
     </div>
 </section>

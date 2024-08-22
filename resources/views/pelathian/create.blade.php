@@ -36,32 +36,32 @@
         </div>
 
         <div class="form-group my-3">
-            <label for="why">Why</label>
+            <label for="why">Alasan memilih pelatihan</label>
             <textarea class="form-control" id="why" name="why" rows="3"></textarea>
         </div>
 
         <div class="form-group my-3">
-            <label for="benefit">Benefit</label>
+            <label for="benefit">Benefit dari pelatihan</label>
             <input type="text" class="form-control" id="benefit" name="benefit">
         </div>
 
         <div class="form-group my-3">
-            <label for="materi">Materi</label>
+            <label for="materi">Materi dari pelatihan</label>
             <textarea class="form-control" id="materi" name="materi" rows="3"></textarea>
         </div>
 
         <div class="form-group my-3">
-            <label for="durasi">Durasi</label>
+            <label for="durasi">Durasi pelatihan</label>
             <input type="text" class="form-control" id="durasi" name="durasi">
         </div>
 
         <div class="form-group my-3">
-            <label for="method">Method</label>
+            <label for="method">Method yang di gunakan dalam pelatihan</label>
             <input type="text" class="form-control" id="method" name="method">
         </div>
 
         <div class="form-group my-3">
-            <label for="persyaratan">Persyaratan</label>
+            <label for="persyaratan">Persyaratan mengikuti pelatihan</label>
             <textarea class="form-control" id="persyaratan" name="persyaratan" rows="3"></textarea>
         </div>
 

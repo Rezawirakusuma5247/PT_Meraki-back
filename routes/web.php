@@ -8,6 +8,7 @@ use App\Http\Controllers\SlideController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubcriptionController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Http\Middleware\CheckAuth;
 
@@ -45,10 +46,12 @@ Route::middleware(CheckAuth::class)->group(function () {
     Route::delete('slides/{slide}', [SlideController::class, 'destroy'])->name('slides.destroy');
 
     Route::get('/admin/contacts', [ContactController::class, 'index'])->name('contacts.index');
+    Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
     Route::get('/subcriptions/export', [SubcriptionController::class, 'export'])->name('subcriptions.export');
     Route::post('/subcriptions/import', [SubcriptionController::class, 'import'])->name('subcriptions.import');
     Route::get('/admin/subcriptions', [SubcriptionController::class, 'index'])->name('subcription.index');
+    Route::get('/admin/registration', [RegistrationController::class, 'index'])->name('registration.index');
 });
 
 
@@ -62,6 +65,10 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/pelatihan/{category}', [PelatihanController::class, 'showByCategory'])->name('pelatihan.category');
 Route::get('/pelatihan/detail/{id}', [PelatihanController::class, 'show'])->name('pelatihan.show');
 Route::get('/pelatihans/jadwal/{category}', [PelatihanController::class, 'showJadwalByCategory'])->name('pelatihans.jadwal.category');
+Route::get('/pelatihan/{id}/registration', [RegistrationController::class, 'registration'])->name('registration');
+Route::post('pelatihan/{id}/registration', [RegistrationController::class, 'store'])->name('registration.store');
+
+
 
 
 use App\Http\Controllers\NavbarController;

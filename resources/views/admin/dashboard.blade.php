@@ -84,10 +84,10 @@
                     <div class="col-lg-6">
                       <div class="card card-primary card-outline mb-3">
                         <div class="card-header font-weight-bold">
-                          <h5 class=" font-weight-bold">Data</h5>
+                          <h5 class=" font-weight-bold">Data Registration</h5>
                         </div>
                         <div class="card-body">
-                          {{--  <a href="{{ route('rate.index') }}" class="btn btn-block btn-primary col-3 mx-auto">Check!</a>  --}}
+                          <a href="{{ route('registration.index') }}" class="btn btn-block btn-primary col-4 mx-auto">Customize Data!</a>
                         </div>
                       </div>
                     </div>

@@ -1,8 +1,8 @@
 @extends('layout.admin')
 
 @section('content')
-<div class="container">
-    <h1>Categories</h1>
+<div class="container ">
+    <h1 class="my-3">Categories</h1>
     <a href="{{ route('categories.create') }}" class="btn btn-primary">Create Category</a>
 
     @if(session('success'))

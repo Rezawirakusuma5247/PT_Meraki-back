@@ -34,6 +34,12 @@ class ContactController extends Controller
         return redirect()->route('thanks')->with('success', 'Message sent successfully!');
     }
 
-    // (Additional CRUD methods like show, edit, update, destroy can be added as needed)
+    public function destroy(Contact $contact)
+    {
+        $contact->delete();
+        return redirect()->route('contacts.index')->with('success', 'Pelatihan deleted successfully.');
+    }
+
+
 }
 

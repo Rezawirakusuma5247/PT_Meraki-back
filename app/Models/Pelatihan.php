@@ -15,4 +15,9 @@ class Pelatihan extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class);
+    }
 }

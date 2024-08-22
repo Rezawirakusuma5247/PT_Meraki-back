@@ -134,4 +134,5 @@ class PelatihanController extends Controller
         // Return the view with the pelatihans filtered by the jadwal table
         return view('pelatihans.jadwal', compact('category', 'pelatihans'));
     }
+
 }
