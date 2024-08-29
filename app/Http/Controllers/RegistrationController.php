@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Models\Pelatihan;
 use App\Models\Registration;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\RegistrationsExport;
+use App\Imports\RegistrationsImport;
 
 class RegistrationController extends Controller
 {
@@ -40,6 +43,53 @@ class RegistrationController extends Controller
     // Redirect or return a response, like a success message or a redirect to another page
     return redirect()->route('thanks')->with('success', 'Registration successful!');
 }
+public function approve($id)
+{
+    $registration = Registration::findOrFail($id);
+    $registration->approved = true;
+    $registration->save();
 
+    return redirect()->route('registration.index')->with('success', 'Registration approved successfully.');
+}
+
+public function approved()
+{
+    $approvedRegistrations = Registration::where('approved', true)->with('pelatihan')->get();
+
+    return view('registration.approved', compact('approvedRegistrations'));
+}
+
+public function export($pelatihan_id)
+    {
+        return Excel::download(new RegistrationsExport($pelatihan_id), 'approved_registrations.xlsx');
+    }
+
+    // Method to import registrations
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls,csv',
+        ]);
+
+        Excel::import(new RegistrationsImport, $request->file('file'));
+
+        return redirect()->back()->with('success', 'Registrations imported successfully!');
+    }
+
+    public function done()
+{
+    $doneRegistrations = Registration::where('approved', true)->get(); // Assuming 'approved' indicates done
+    return view('registration.done', compact('doneRegistrations'));
+}
+
+public function undo($id)
+{
+    $registration = Registration::findOrFail($id);
+    $registration->approved = false; // Assuming 'approved' indicates done
+    $registration->save();
+
+    return redirect()->route('registration.undo')->with('success', 'Registration status reverted!');
+}
 
 }
+

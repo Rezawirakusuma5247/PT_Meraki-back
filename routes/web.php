@@ -51,10 +51,22 @@ Route::middleware(CheckAuth::class)->group(function () {
     Route::get('/subcriptions/export', [SubcriptionController::class, 'export'])->name('subcriptions.export');
     Route::post('/subcriptions/import', [SubcriptionController::class, 'import'])->name('subcriptions.import');
     Route::get('/admin/subcriptions', [SubcriptionController::class, 'index'])->name('subcription.index');
+
     Route::get('/admin/registration', [RegistrationController::class, 'index'])->name('registration.index');
+
+    Route::patch('/registration/{id}/approve', [RegistrationController::class, 'approve'])->name('registration.approve');
+    Route::get('/registration/approved', [RegistrationController::class, 'approved'])->name('registration.approved');
+    Route::get('/registrations/export/{pelatihan_id}', [RegistrationController::class, 'export'])->name('registrations.export');
+    Route::post('/registrations/import', [RegistrationController::class, 'import'])->name('registrations.import');
+
+    Route::get('/registrations/done', [RegistrationController::class, 'done'])->name('registrations.done');
+    Route::patch('/registrations/{id}/undo', [RegistrationController::class, 'undo'])->name('registration.undo');
+
+
+
 });
 
-
+Route::get('jadwal', [ViewController::class, 'view_jadwal'])->name('jadwal');
 Route::get('pelatihan', [ViewController::class, 'view_pelatihan'])->name('pelatihan');
 Route::get('certificate', [ViewController::class, 'view_certificate'])->name('certificate');
 Route::get('informasi', [ViewController::class, 'view_informasi'])->name('informasi');

@@ -1,4 +1,5 @@
 @extends('layout.main')
+
 @section('content')
 <style>
     body, html {
@@ -70,30 +71,21 @@
 <header class="jumbotron text-center py-5 bg-light">
     <h1 class="display-4">Certificate Search</h1>
     <p class="lead">Enter the details below to search for your certificate.</p>
-  </header>
+</header>
+
 <section id="certificate-search" class="container py-5">
-    <div class="container text-center mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-              <div class="certificate-form">
-                <form>
-                  <div class="form-group">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your full name">
-                  </div>
-                  <div class="form-group">
-                    <label for="certificate-date" class="form-label">Training Date</label>
-                    <input type="date" class="form-control" id="certificate-date">
-                  </div>
-                  <div class="form-group">
-                    <label for="certificate-number" class="form-label">Certificate Number</label>
-                    <input type="text" class="form-control" id="certificate-number" placeholder="Enter the certificate number">
-                  </div>
-                  <button type="submit" class="btn btn-primary">Search</button>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="certificate-form">
+                <form method="GET" action="{{ route('search') }}">
+                    <div class="form-group">
+                        <label for="search" class="form-label">Search</label>
+                        <input type="text" class="form-control" id="search" name="query" placeholder="Search by name, training date, or certificate number">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Search</button>
                 </form>
-              </div>
             </div>
         </div>
     </div>
-  </section>
+</section>
 @endsection

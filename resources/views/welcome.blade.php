@@ -153,27 +153,8 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('certificate') }}">Certificate</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Info Update
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            @foreach($categories as $category)
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">{{ $category->name }}</a>
-                                    <ul class="dropdown-menu">
-                                        @foreach($category->pelatihans as $pelatihan)
-                                            <li>
-                                                <a class="dropdown-item" href="{{ route('pelatihans.jadwal.category', $category->name) }}">
-                                                    {{ $pelatihan->title }}
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                            @endforeach
-                        </ul>
-
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('jadwal') }}">Jadwal</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('contact') }}">Contact</a>
@@ -198,7 +179,7 @@
         </section>
             <div class="container" >
                 <div class="row gy-4">
-                    <div class="col-lg-12 order-2 order-lg-1 d-flex justify-content-between align-items-center bg-light p-3">
+                    <div class="col-lg-12 order-2 order-lg-1 d-flex justify-content-between align-items-center p-3">
                         <div class="text-left">
                             <h4><span style="color: #b04c87bf;">Meraki Institute by</span> </h4>
                             <h4 style="color: #b04c87bf;">PT. Meraki Anugerah Pratama</h4>

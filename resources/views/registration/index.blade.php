@@ -34,6 +34,17 @@
                     <td>{{ $registration->social_media }}</td>
                     <td>{{ ucfirst($registration->role) }}</td>
                     <td>
+                        @if(!$registration->approved)
+                            <form action="{{ route('registration.approve', $registration->id) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit" class="btn btn-success">Approve</button>
+                            </form>
+                        @else
+                            <span class="text-success">Approved</span>
+                        @endif
+                    </td>
+                    <td>
                         {{--  <form action="{{ route('registration.destroy', $registration->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')

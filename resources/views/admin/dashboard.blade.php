@@ -92,6 +92,29 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="card card-primary card-outline mb-3">
+                        <div class="card-header font-weight-bold">
+                          <h5 class=" font-weight-bold">Data Approved</h5>
+                        </div>
+                        <div class="card-body">
+                            <a href="{{ route('registration.approved') }}" class="btn btn-block btn-primary col-4 mx-auto">Customize Data!</a>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="card card-primary card-outline mb-3">
+                        <div class="card-header font-weight-bold">
+                          <h5 class=" font-weight-bold">Data Done Validation</h5>
+                        </div>
+                        <div class="card-body">
+                          <a href="{{ route('registrations.done') }}" class="btn btn-block btn-primary col-4 mx-auto">Customize Data</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
